@@ -1,0 +1,44 @@
+.button{
+    background: $greyish-blue;
+    border: none;
+    font-size: $font-l-size;
+    font-weight: 400;
+    border-radius: 5px;
+    padding: $s-size;
+    text-decoration: none;
+    display: inline-block;
+    line-height: 1;
+    padding: $s-size;
+    color: white;
+}
+
+.button--margin{
+  margin-top: $m-size;
+}
+
+.button--link{
+  background: none;
+  color: white;
+}
+
+.button--form{
+  background: $purple;
+  color: white;
+}
+
+.button--remove{
+  background: $med-grey;
+  /* color: white; */
+}
+
+.button--skip{
+  float: right;
+  margin: $s-size $s-size 0 0;
+}
+
+.button--without-border {
+  background: none;
+  border: none;
+  color: $purple;
+  padding: 0;
+}
