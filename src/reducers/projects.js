@@ -1,8 +1,8 @@
 export default (state = {}, action) => {
   switch(action.type){
-    case 'SAVE_ALL_SALES_DATA':
+    case 'SAVE_ALL_PROJECTS':
     return {
-      data: action.data
+      data: action.projects
     }
     default:
     return state;

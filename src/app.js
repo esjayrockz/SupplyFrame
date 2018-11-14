@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import AppRouter, { history } from './routers/AppRouter';
+import LoadingPage from './components/LoadingPage';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
-import { fetchAllSalesData } from './actions/sales';
+import { fetchAllProjects } from './actions/projects';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 
@@ -23,6 +24,9 @@ const renderApp = () => {
     hasRendered = true;
   }
 };
-store.dispatch(fetchAllSalesData()).then(() => {
+
+ReactDOM.render(<LoadingPage />, document.getElementById('app'));
+
+store.dispatch(fetchAllProjects()).then(() => {
   renderApp();
 });

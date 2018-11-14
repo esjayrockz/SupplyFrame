@@ -1,21 +1,41 @@
 .box-layout{
-  align-items: center;
   display: flex;
-  height: 100vh;
-  width: 100vw;
+  flex-wrap: wrap;
+  flex-direction: row;
   justify-content: center;
 }
 
 .box-layout__box{
-  background: fade-out($light-greyish-blue, .15);
+  background: white;
   border-radius: 3px;
-  padding: $l-size $m-size;
-  text-align: center;
-  width: 25rem;
-  color: white;
+  padding: $s-size $s-size;
+  text-align: left;
+  word-break: keep-all;
+  width: 30%;
+  color: fade-out($light-greyish-blue, .15);
+  margin: 1.66%;
+  display: flex;
+  flex-direction: column;
+  min-width: 25rem;
 }
 
-.box-layout__title{
-  margin: 0 0 $m-size 0;
-  line-height: 1;
+.box-layout__tooltip{
+  visibility: hidden;
+  background-color: fade-out(black, .20);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: $s-size;
+  display: flex;
+  flex-direction: column;
+  margin: 1% 0 0 1%;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+
+}
+
+.box-layout__box:hover .box-layout__tooltip {
+    visibility: visible;
 }

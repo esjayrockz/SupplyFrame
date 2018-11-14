@@ -1,0 +1,15 @@
+.header-container{
+  background: rgb(244,246,249);
+  margin: $l-size auto;
+  max-width: 100rem;
+  padding: $m-size;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.header-container--pagination{
+  display: flex;
+  flex-direction: column;
+}

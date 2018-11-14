@@ -5,6 +5,7 @@ const webpack = require('webpack');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
+require('dotenv').config({ path: '.env' });
 
 module.exports = {
  entry: ['babel-polyfill', './src/app.js'],
@@ -38,6 +39,9 @@ module.exports = {
    }]
  },
  plugins: [
-   CSSExtract
+   CSSExtract,
+   new webpack.DefinePlugin({
+    'process.env.API_KEY': JSON.stringify(process.env.API_KEY)
+    })
 ]
 };
