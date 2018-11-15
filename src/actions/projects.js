@@ -2,7 +2,7 @@ import axios from 'axios';
 import moment from 'moment';
 
 const api_key = process.env.API_KEY;
-const url = 'http://api.hackaday.io/v1/projects';
+const url = 'https://api.hackaday.io/v1/projects';
 
 export const fetchAllProjects = () => {
 
