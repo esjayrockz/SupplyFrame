@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import Project from './Project';
 import Header from './Header';
-
+import { fetchCurrentPageUsers } from '../actions/users';
 
 export class Dashboard extends React.Component {
   state = {
@@ -23,6 +23,21 @@ export class Dashboard extends React.Component {
     }
   };
 
+  fetchCurrentPageUsers = () => {
+    const currentPage = this.state.currentPage;
+    const perPage = this.state.perPage;
+    this.props.fetchCurrentPageUsers(currentPage, perPage);
+  }
+
+  componentDidMount = () => {
+    this.fetchCurrentPageUsers();
+  }
+
+  componentDidUpdate = (prevProps, prevState) => {
+    if(prevState.currentPage !== this.state.currentPage || prevState.perPage !== this.state.perPage){
+      this.fetchCurrentPageUsers();
+    }
+  }
 
   render(){
     const currentPage = this.state.currentPage;
@@ -33,7 +48,7 @@ export class Dashboard extends React.Component {
     for(let i = start; i < end; i++){
       currentPageProjects.push(this.props.projects[i]);
     }
-
+    const users = this.props.users ? this.props.users:[];
     return (
       <div>
         <Header
@@ -48,8 +63,9 @@ export class Dashboard extends React.Component {
             end === 0 ? 'No projects to show. Please try later.' : (
               currentPageProjects.map((project, index) => (
               <Project
-                 key = {index}
-                 {...project}
+                 key={index}
+                 project={project}
+                 users={users[index]}
               />
               ))
             )
@@ -61,9 +77,13 @@ export class Dashboard extends React.Component {
   }
 }
 
-
-const mapStateToProps = (state) => ({
-  projects: state.projects.data
+const mapDispatchToProps = (dispatch) => ({
+  fetchCurrentPageUsers: (currentPage, perPage) => dispatch(fetchCurrentPageUsers(currentPage, perPage))
 });
 
-export default connect(mapStateToProps)(Dashboard);
+const mapStateToProps = (state) => ({
+  projects: state.projects.data,
+  users: state.users.data
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

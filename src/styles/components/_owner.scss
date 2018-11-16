@@ -1,0 +1,24 @@
+.owner{
+  position: relative;
+  padding-bottom: $s-size;
+}
+
+.owner__tooltip{
+  visibility: hidden;
+  background-color: fade-out(black, .20);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: $s-size;
+  display: flex;
+  flex-direction: column;
+  margin: 1% 0 0 1%;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.owner:hover .owner__tooltip{
+    visibility: visible;
+}
