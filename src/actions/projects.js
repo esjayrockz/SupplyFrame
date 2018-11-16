@@ -1,5 +1,4 @@
 import axios from 'axios';
-import moment from 'moment';
 
 const api_key = process.env.API_KEY;
 const url = 'https://api.hackaday.io/v1/projects';
