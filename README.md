@@ -1,4 +1,4 @@
-# SupplyFrame Assessment - Created using React & Redux
+# SupplyFrame Assessment - Created using React, Redux & Node/Express Server.
 
 * To run in local =>
 * git clone https://github.com/esjayrockz/SupplyFrame.git
